@@ -22,4 +22,8 @@ class Play extends Phaser.Scene {
         this.add.rectangle(game.config.width - borderUISize, 0, borderUISize, game.config.height, 0xFFFFFF).setOrigin(0 ,0);
         
     }
+
+    update() {
+        this.starfield.tilePositionX -= 4;
+    }
 }
