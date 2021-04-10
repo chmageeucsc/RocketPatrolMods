@@ -30,25 +30,32 @@ class Play extends Phaser.Scene {
             game.config.height - borderUISize - borderPadding,
             'rocket'
         );
+
         this.ship1 = new Ship (
             this,
             100,
             200,
-            'spaceship'
+            'spaceship',
+            0,
+            30
         );
 
         this.ship2 = new Ship (
             this,
             300,
             240,
-            'spaceship'
+            'spaceship',
+            0,
+            20
         );
 
         this.ship3 = new Ship (
             this,
             380,
             300,
-            'spaceship'
+            'spaceship',
+            0,
+            10
         );
 
         // green UI bg
