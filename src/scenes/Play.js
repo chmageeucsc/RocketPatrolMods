@@ -60,18 +60,20 @@ class Play extends Phaser.Scene {
 
         // green UI bg
         this.add.rectangle(0, borderUISize + borderPadding, 
-        game.config.width, borderUISize * 2, 0x00FF00,).setOrigin(0,0);
+        game.config.width, borderUISize * 2, 0xff99ed,).setOrigin(0,0);
 
         // white borders
-        this.add.rectangle(0, 0, game.config.width, borderUISize, 0xFFFFFF).setOrigin(0 ,0);
-        this.add.rectangle(0, game.config.height - borderUISize, game.config.width, borderUISize, 0xFFFFFF).setOrigin(0 ,0);
-        this.add.rectangle(0, 0, borderUISize, game.config.height, 0xFFFFFF).setOrigin(0 ,0);
-        this.add.rectangle(game.config.width - borderUISize, 0, borderUISize, game.config.height, 0xFFFFFF).setOrigin(0 ,0);
+        this.add.rectangle(0, 0, game.config.width, borderUISize, 0x1d0c47).setOrigin(0 ,0);
+        this.add.rectangle(0, game.config.height - borderUISize, game.config.width, borderUISize, 0x1d0c47).setOrigin(0 ,0);
+        this.add.rectangle(0, 0, borderUISize, game.config.height, 0x1d0c47).setOrigin(0 ,0);
+        this.add.rectangle(game.config.width - borderUISize, 0, borderUISize, game.config.height, 0x1d0c47).setOrigin(0 ,0);
         
         keyF = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.F);
         keyR = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.R);
         keyLEFT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.LEFT);
-        keyRIGHT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.RIGHT);   
+        keyRIGHT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.RIGHT);
+        keyUP = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.UP);
+        keyDOWN = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.DOWN);   
         
         // animation config
         this.anims.create({
@@ -87,7 +89,7 @@ class Play extends Phaser.Scene {
         let scoreConfig = {
             fontFamily: 'Courier',
             fontSize: '28px',
-            backgroundColor: '#F3B141',
+            backgroundColor: '#fce9c2',
             color: '#843605',
             align: 'right',
             padding: {
