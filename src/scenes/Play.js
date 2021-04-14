@@ -36,7 +36,7 @@ class Play extends Phaser.Scene {
         this.p1Rocket = new Rocket(
             this,
             game.config.width / 2,
-            game.config.height - borderUISize - borderPadding * 3,
+            game.config.height - borderUISize - borderPadding * 3.5,
             'rocket'
         );
 
@@ -84,12 +84,6 @@ class Play extends Phaser.Scene {
         this.add.rectangle(0, borderUISize + borderPadding, 
         game.config.width, borderUISize * 2, 0xff99ed,).setOrigin(0,0);
 
-        // white borders
-        this.add.rectangle(0, 0, game.config.width, borderUISize, 0x1d0c47).setOrigin(0 ,0);
-       // this.add.rectangle(0, game.config.height - borderUISize, game.config.width, borderUISize, 0x1d0c47).setOrigin(0 ,0);
-        this.add.rectangle(0, 0, borderUISize, game.config.height, 0x1d0c47).setOrigin(0 ,0);
-        this.add.rectangle(game.config.width - borderUISize, 0, borderUISize, game.config.height, 0x1d0c47).setOrigin(0 ,0);
-        
         //foreground
         this.foreground = this.add.tileSprite(
             0,
@@ -98,6 +92,12 @@ class Play extends Phaser.Scene {
             480,
             'foreground'
             ).setOrigin(0,0);
+
+        // white borders
+        this.add.rectangle(0, 0, game.config.width, borderUISize, 0x1d0c47).setOrigin(0 ,0);
+       // this.add.rectangle(0, game.config.height - borderUISize, game.config.width, borderUISize, 0x1d0c47).setOrigin(0 ,0);
+        this.add.rectangle(0, 0, borderUISize, game.config.height, 0x1d0c47).setOrigin(0 ,0);
+        this.add.rectangle(game.config.width - borderUISize, 0, borderUISize, game.config.height, 0x1d0c47).setOrigin(0 ,0);
 
         keyF = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.F);
         keyR = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.R);
@@ -138,7 +138,23 @@ class Play extends Phaser.Scene {
         this.scoreLeft = this.add.text(borderUISize + borderPadding, borderUISize + 
             borderPadding*2, this.p1Score, scoreConfig);
 
-        /*// display time
+        /*// display high score
+        let hsConfig = {
+            fontFamily: 'Courier',
+            fontSize: '28px',
+            backgroundColor: '#fce9c2',
+            color: '#843605',
+            align: 'center',
+            padding: {
+            top: 5,
+            bottom: 5,
+            },
+            fixedWidth: 300
+        }
+        this.hsMiddle = this.add.text(borderUISize + borderPadding * 13, borderUISize + 
+            borderPadding*2, "High Score: " + this.p1Score / 1000, hsConfig);    
+
+        // display time
         let timeConfig = {
             fontFamily: 'Courier',
             fontSize: '28px',
