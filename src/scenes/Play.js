@@ -4,7 +4,8 @@ class Play extends Phaser.Scene {
     }
     
     preload() {
-        this.load.audio("dnt", ["DnT.mp3"]);
+        //this.load.audio('dnt', 'dnt.wav');
+        this.load.image('foreground', 'assets/foreground.png');
         this.load.image('starfield', 'assets/starfield.png');
         this.load.image('smallship', 'assets/smallship.png')
         this.load.image('rocket', 'assets/rocket.png');
@@ -35,7 +36,7 @@ class Play extends Phaser.Scene {
         this.p1Rocket = new Rocket(
             this,
             game.config.width / 2,
-            game.config.height - borderUISize - borderPadding,
+            game.config.height - borderUISize - borderPadding * 3,
             'rocket'
         );
 
@@ -85,10 +86,19 @@ class Play extends Phaser.Scene {
 
         // white borders
         this.add.rectangle(0, 0, game.config.width, borderUISize, 0x1d0c47).setOrigin(0 ,0);
-        this.add.rectangle(0, game.config.height - borderUISize, game.config.width, borderUISize, 0x1d0c47).setOrigin(0 ,0);
+       // this.add.rectangle(0, game.config.height - borderUISize, game.config.width, borderUISize, 0x1d0c47).setOrigin(0 ,0);
         this.add.rectangle(0, 0, borderUISize, game.config.height, 0x1d0c47).setOrigin(0 ,0);
         this.add.rectangle(game.config.width - borderUISize, 0, borderUISize, game.config.height, 0x1d0c47).setOrigin(0 ,0);
         
+        //foreground
+        this.foreground = this.add.tileSprite(
+            0,
+            0,
+            640,
+            480,
+            'foreground'
+            ).setOrigin(0,0);
+
         keyF = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.F);
         keyR = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.R);
         keyLEFT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.LEFT);
@@ -128,7 +138,7 @@ class Play extends Phaser.Scene {
         this.scoreLeft = this.add.text(borderUISize + borderPadding, borderUISize + 
             borderPadding*2, this.p1Score, scoreConfig);
 
-        // display score
+        /*// display time
         let timeConfig = {
             fontFamily: 'Courier',
             fontSize: '28px',
@@ -142,7 +152,7 @@ class Play extends Phaser.Scene {
             fixedWidth: 100
         }
         this.timeRight = this.add.text(borderUISize + borderPadding * 43, borderUISize + 
-            borderPadding*2, this.game.settings.gameTimer / 1000, timeConfig);
+            borderPadding*2, this.game.settings.gameTimer / 1000, timeConfig);*/
         
         // GAME OVER flag
         this.gameOver = false;
@@ -175,6 +185,7 @@ class Play extends Phaser.Scene {
         } 
 
         this.starfield.tilePositionX -= 4;
+        this.foreground.tilePositionX -= 1;
         
         // check collisions
         if (this.checkCollision(this.p1Rocket, this.ship4)) {
@@ -221,8 +232,8 @@ class Play extends Phaser.Scene {
             // score add and repaint
             this.p1Score += ship.points;
             this.scoreLeft.text = this.p1Score;  
-            this.game.settings.gameTimer += ship.seconds;
-            this.timeRight.text = this.game.settings.gameTimer / 1000;
+            //this.game.settings.gameTimer += ship.seconds;
+            //this.timeRight.text = this.game.settings.gameTimer / 1000;
             this.sound.play('sfx_explosion');
         });       
     }
@@ -240,8 +251,8 @@ class Play extends Phaser.Scene {
             // score add and repaint
             this.p1Score += ship.points;
             this.scoreLeft.text = this.p1Score;  
-            this.game.settings.gameTimer += ship.seconds;
-            this.timeRight.text = this.game.settings.gameTimer / 1000;
+            //this.game.settings.gameTimer += ship.seconds;
+            //this.timeRight.text = this.game.settings.gameTimer / 1000;
             this.sound.play('sfx_explosion');
         });       
     }
