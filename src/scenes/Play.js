@@ -4,7 +4,7 @@ class Play extends Phaser.Scene {
     }
     
     preload() {
-        //this.load.audio('dnt', 'dnt.wav');
+        this.load.audio('dnt', 'assets/dnt.wav');
         this.load.image('foreground', 'assets/foreground.png');
         this.load.image('starfield', 'assets/starfield.png');
         this.load.image('smallship', 'assets/smallship.png')
@@ -23,6 +23,9 @@ class Play extends Phaser.Scene {
     }
 
     create() {
+
+        this.sound.add('dnt').play();
+
 
         //starfield
         this.starfield = this.add.tileSprite(
@@ -201,7 +204,7 @@ class Play extends Phaser.Scene {
         } 
 
         this.starfield.tilePositionX -= 4;
-        this.foreground.tilePositionX -= 1;
+        this.foreground.tilePositionX -= 6;
         
         // check collisions
         if (this.checkCollision(this.p1Rocket, this.ship4)) {
