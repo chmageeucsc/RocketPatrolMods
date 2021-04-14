@@ -4,6 +4,7 @@ class Play extends Phaser.Scene {
     }
     
     preload() {
+        this.load.audio("dnt", ["DnT.mp3"]);
         this.load.image('starfield', 'assets/starfield.png');
         this.load.image('smallship', 'assets/smallship.png')
         this.load.image('rocket', 'assets/rocket.png');
@@ -21,6 +22,7 @@ class Play extends Phaser.Scene {
     }
 
     create() {
+
         //starfield
         this.starfield = this.add.tileSprite(
             0,
@@ -43,7 +45,8 @@ class Play extends Phaser.Scene {
             200,
             'spaceship',
             0,
-            30
+            30,
+            3000
         );
 
         this.ship2 = new Ship (
@@ -52,7 +55,8 @@ class Play extends Phaser.Scene {
             240,
             'spaceship',
             0,
-            20
+            20,
+            2000
         );
 
         this.ship3 = new Ship (
@@ -61,7 +65,8 @@ class Play extends Phaser.Scene {
             300,
             'spaceship',
             0,
-            10
+            10,
+            1000
         );
 
         this.ship4 = new Small (
@@ -70,7 +75,8 @@ class Play extends Phaser.Scene {
             150,
             'smallship',
             0,
-            50
+            50,
+            5000
         );
 
         // green UI bg
@@ -121,6 +127,22 @@ class Play extends Phaser.Scene {
         }
         this.scoreLeft = this.add.text(borderUISize + borderPadding, borderUISize + 
             borderPadding*2, this.p1Score, scoreConfig);
+
+        // display score
+        let timeConfig = {
+            fontFamily: 'Courier',
+            fontSize: '28px',
+            backgroundColor: '#fce9c2',
+            color: '#843605',
+            align: 'right',
+            padding: {
+            top: 5,
+            bottom: 5,
+            },
+            fixedWidth: 100
+        }
+        this.timeRight = this.add.text(borderUISize + borderPadding * 43, borderUISize + 
+            borderPadding*2, this.game.settings.gameTimer / 1000, timeConfig);
         
         // GAME OVER flag
         this.gameOver = false;
@@ -199,6 +221,8 @@ class Play extends Phaser.Scene {
             // score add and repaint
             this.p1Score += ship.points;
             this.scoreLeft.text = this.p1Score;  
+            this.game.settings.gameTimer += ship.seconds;
+            this.timeRight.text = this.game.settings.gameTimer / 1000;
             this.sound.play('sfx_explosion');
         });       
     }
@@ -216,6 +240,8 @@ class Play extends Phaser.Scene {
             // score add and repaint
             this.p1Score += ship.points;
             this.scoreLeft.text = this.p1Score;  
+            this.game.settings.gameTimer += ship.seconds;
+            this.timeRight.text = this.game.settings.gameTimer / 1000;
             this.sound.play('sfx_explosion');
         });       
     }

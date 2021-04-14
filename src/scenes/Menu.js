@@ -11,10 +11,19 @@ class Menu extends Phaser.Scene {
         this.load.audio('sfx_select', './assets/blip_select12.wav');
         this.load.audio('sfx_explosion', './assets/explosion38.wav');
         this.load.audio('sfx_rocket', './assets/rocket_shot.wav');
+        this.load.image('title_menu', 'assets/menu.png')
     }
 
     create() {
-        // menu text configuration
+         //title
+         this.title = this.add.tileSprite(
+            0,
+            0,
+            640,
+            480,
+            'title_menu'
+            ).setOrigin(0,0);
+        /*// menu text configuration
         let menuConfig = {
             fontFamily: 'Courier',
             fontSize: '28px',
@@ -40,6 +49,8 @@ class Menu extends Phaser.Scene {
         this.add.text(game.config.width / 2, game.config.height / 2 + borderUISize + 
             borderPadding * 5, '(↑) Mouse Novice or Mouse Expert (↓)', menuConfig).setOrigin(0.5);
         // define keys
+
+        */
         keyLEFT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.LEFT);
         keyRIGHT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.RIGHT);
         keyUP = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.UP);

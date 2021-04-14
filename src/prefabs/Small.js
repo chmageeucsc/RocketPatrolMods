@@ -1,9 +1,10 @@
 class Small extends Phaser.GameObjects.Sprite {
-    constructor(scene, x, y, texture, frame, pointValue) {
-        super(scene, x, y, texture, frame,)
+    constructor(scene, x, y, texture, frame, pointValue, timeValue) {
+        super(scene, x, y, texture, frame);
         scene.add.existing(this);
         this.points = pointValue;
         this.movementSpeed = 5;
+        this.seconds = timeValue;
     }
 
     update() {
