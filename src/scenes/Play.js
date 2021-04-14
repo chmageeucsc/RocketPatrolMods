@@ -27,7 +27,6 @@ class Play extends Phaser.Scene {
 
         this.sound.add('dnt').play();
 
-
         //starfield
         this.starfield = this.add.tileSprite(
             0,
@@ -264,7 +263,21 @@ class Play extends Phaser.Scene {
             this.scoreLeft.text = this.p1Score;  
             //this.game.settings.gameTimer += ship.seconds;
             //this.timeRight.text = this.game.settings.gameTimer / 1000;
-            this.sound.play('sfx_explosion');
+            
+            let value = Phaser.Math.Between(1, 4);
+            if(value == 1) {
+                this.sound.play('sfx_explosion');
+            }
+            else if(value == 2) {
+                this.sound.play('laserboom');
+            }
+            else if(value == 3) {
+                this.sound.play('smallboom');
+            }
+            else if(value == 4) {
+                this.sound.play('medboom');
+            }
+            
         });       
     }
 
@@ -283,7 +296,20 @@ class Play extends Phaser.Scene {
             this.scoreLeft.text = this.p1Score;  
             //this.game.settings.gameTimer += ship.seconds;
             //this.timeRight.text = this.game.settings.gameTimer / 1000;
-            this.sound.play('sfx_explosion');
+            
+            let value = Phaser.Math.Between(1, 4);
+            if(value == 1) {
+                this.sound.play('sfx_explosion');
+            }
+            else if(value == 2) {
+                this.sound.play('laserboom');
+            }
+            else if(value == 3) {
+                this.sound.play('smallboom');
+            }
+            else if(value == 4) {
+                this.sound.play('medboom');
+            }
         });       
     }
     

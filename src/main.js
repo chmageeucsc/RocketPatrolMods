@@ -6,11 +6,14 @@ Time to Completion: about 5 hours
 ---------------------------------------------
 Points Breakdown
 ---------------------------------------------
-Create a new spaceship type (w/ new artwork) that's smaller, moves faster, and is worth more points (25)
-Create new artwork for all of the in-game assets (rocket, spaceships, explosion) (25) 
-Implement mouse control for player movement and mouse click to fire (25)
-Create a new title screen (15)
-Implement parallax scrolling (15)
+Create a new spaceship type (w/ new artwork) that's smaller, moves faster, and is worth more points (20)
+Create new artwork for all of the in-game assets (rocket, spaceships, explosion) (20) 
+Implement mouse control for player movement and mouse click to fire (20)
+Create a new title screen (10)
+Create 4 new explosion SFX and randomize which one plays on impact (10)
+Implement parallax scrolling (10)
+Replace UI borders with new artwork (10)
+Add your own (copyright-free) background music to the Play scene (5)
 
 Total Points: 105
 */
