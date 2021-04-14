@@ -2,7 +2,7 @@
 Name: Chantel Gee
 Project Title: Rocket Patrol Mod
 Date: April 13, 2021
-Time to Completion: about 5 hours
+Time to Completion: about 7 hours
 ---------------------------------------------
 Points Breakdown
 ---------------------------------------------
@@ -16,6 +16,14 @@ Replace UI borders with new artwork (10)
 Add your own (copyright-free) background music to the Play scene (5)
 
 Total Points: 105
+---------------------------------------------
+Credits
+---------------------------------------------
+All visual assets remade by me.
+'smallboom.wav' from V-ktor on freesound.org
+'medboom.wav' from ryansnook on freesound.org
+'laserboom.wav' from dpoggioli on freesound.org
+
 */
 
 let config = {
