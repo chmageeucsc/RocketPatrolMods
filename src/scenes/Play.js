@@ -5,6 +5,7 @@ class Play extends Phaser.Scene {
     
     preload() {
         this.load.audio('dnt', 'assets/dnt.wav');
+        this.load.image('borders', 'assets/border ui.png')
         this.load.image('foreground', 'assets/foreground.png');
         this.load.image('starfield', 'assets/starfield.png');
         this.load.image('smallship', 'assets/smallship.png')
@@ -83,10 +84,6 @@ class Play extends Phaser.Scene {
             5000
         );
 
-        // green UI bg
-        this.add.rectangle(0, borderUISize + borderPadding, 
-        game.config.width, borderUISize * 2, 0xff99ed,).setOrigin(0,0);
-
         //foreground
         this.foreground = this.add.tileSprite(
             0,
@@ -96,11 +93,24 @@ class Play extends Phaser.Scene {
             'foreground'
             ).setOrigin(0,0);
 
+        // green UI bg
+                this.add.rectangle(0, borderUISize + borderPadding, 
+                    game.config.width, borderUISize * 2, 0xff99ed,).setOrigin(0,0);  
+
         // white borders
-        this.add.rectangle(0, 0, game.config.width, borderUISize, 0x1d0c47).setOrigin(0 ,0);
-       // this.add.rectangle(0, game.config.height - borderUISize, game.config.width, borderUISize, 0x1d0c47).setOrigin(0 ,0);
-        this.add.rectangle(0, 0, borderUISize, game.config.height, 0x1d0c47).setOrigin(0 ,0);
-        this.add.rectangle(game.config.width - borderUISize, 0, borderUISize, game.config.height, 0x1d0c47).setOrigin(0 ,0);
+        this.add.rectangle(0, 0, game.config.width, borderUISize, 0x1d0c47).setOrigin(0 ,0); //left
+        // this.add.rectangle(0, game.config.height - borderUISize, game.config.width, borderUISize, 0x1d0c47).setOrigin(0 ,0); //bottom
+        this.add.rectangle(0, 0, borderUISize, game.config.height, 0x1d0c47).setOrigin(0 ,0); //right
+        this.add.rectangle(game.config.width - borderUISize, 0, borderUISize, game.config.height, 0x1d0c47).setOrigin(0 ,0); //top
+
+         //borders ui
+         this.borders = this.add.tileSprite(
+            0,
+            0,
+            640,
+            480,
+            'borders'
+            ).setOrigin(0,0);
 
         keyF = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.F);
         keyR = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.R);
@@ -203,6 +213,7 @@ class Play extends Phaser.Scene {
             this.ship4.update();
         } 
 
+        
         this.starfield.tilePositionX -= 4;
         this.foreground.tilePositionX -= 6;
         
