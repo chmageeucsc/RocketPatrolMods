@@ -41,7 +41,7 @@ class Play extends Phaser.Scene {
             game.config.width / 2,
             game.config.height - borderUISize - borderPadding * 3.5,
             'rocket'
-        );
+        ).setOrigin(0, 0);
 
         this.ship1 = new Ship (
             this,
@@ -51,7 +51,7 @@ class Play extends Phaser.Scene {
             0,
             30,
             3000
-        );
+        ).setOrigin(0, 0);
 
         this.ship2 = new Ship (
             this,
@@ -61,7 +61,7 @@ class Play extends Phaser.Scene {
             0,
             20,
             2000
-        );
+        ).setOrigin(0, 0);
 
         this.ship3 = new Ship (
             this,
@@ -71,7 +71,7 @@ class Play extends Phaser.Scene {
             0,
             10,
             1000
-        );
+        ).setOrigin(0, 0);
 
         this.ship4 = new Small (
             this,
@@ -81,7 +81,7 @@ class Play extends Phaser.Scene {
             0,
             50,
             5000
-        );
+        ).setOrigin(0, 0);
 
         //foreground
         this.foreground = this.add.tileSprite(
