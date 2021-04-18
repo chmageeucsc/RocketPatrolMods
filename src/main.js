@@ -20,10 +20,10 @@ Total Points: 105
 Credits
 ---------------------------------------------
 All visual assets remade by me.
-'smallboom.wav' from V-ktor on freesound.org
-'medboom.wav' from ryansnook on freesound.org
-'laserboom.wav' from dpoggioli on freesound.org
-'dnt.wav' from Free Music on YouTube
+'smallboom.wav' from V-ktor on freesound.org (https://freesound.org/people/V-ktor/sounds/482993/)
+'medboom.wav' from ryansnook on freesound.org (https://freesound.org/people/ryansnook/sounds/110115/)
+'laserboom.wav' from dpoggioli on freesound.org (https://freesound.org/people/Dpoggioli/sounds/213610/)
+'dnt.wav' from Free Music on YouTube (https://www.youtube.com/watch?v=OuRvOCf9mJ4&list=PLwJjxqYuirCLkq42mGw4XKGQlpZSfxsYd&index=4)
 */
 
 let config = {
